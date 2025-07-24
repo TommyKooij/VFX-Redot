@@ -1,3 +1,29 @@
-[gd_scene format=3 uid="uid://caflsjw06ol4e"]
+[gd_scene load_steps=6 format=3 uid="uid://caflsjw06ol4e"]
+
+[ext_resource type="Shader" uid="uid://c5itvvd1tmj7r" path="res://shaders/vfx_fireball.tres" id="1_ftym0"]
+[ext_resource type="Texture2D" uid="uid://op8k8ooj1s1p" path="res://textures/voronoi.png" id="2_5wbv7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wg57c"]
+render_priority = 0
+shader = ExtResource("1_ftym0")
+shader_parameter/main_texture_speed = Vector2(0, 1)
+shader_parameter/main_texture = ExtResource("2_5wbv7")
+shader_parameter/main_texture_power = 4.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5c1uw"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+color = Color(5, 2, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2psmq"]
 
 [node name="vfx_fireball" type="Node3D"]
+
+[node name="sphere" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_wg57c")
+amount = 1
+fixed_fps = 60
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_5c1uw")
+draw_pass_1 = SubResource("SphereMesh_2psmq")
