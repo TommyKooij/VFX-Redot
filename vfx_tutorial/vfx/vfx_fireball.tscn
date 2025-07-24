@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://caflsjw06ol4e"]
+
+[node name="vfx_fireball" type="Node3D"]
