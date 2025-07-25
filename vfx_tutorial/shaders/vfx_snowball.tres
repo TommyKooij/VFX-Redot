@@ -42,7 +42,7 @@ default_value = 1.0
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mul, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_add, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
 uniform vec2 main_texture_speed = vec2(0.000000, 0.000000);
 uniform sampler2D main_texture;
@@ -103,7 +103,7 @@ void fragment() {
 
 }
 "
-modes/blend = 3
+modes/blend = 1
 nodes/fragment/0/position = Vector2(1520, 160)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_cc0un")
 nodes/fragment/2/position = Vector2(-1560, 160)

@@ -15,8 +15,8 @@ shader_parameter/main_texture_power = 4.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 scale_max = 0.5
-color = Color(1, 2, 5, 1)
-hue_variation_min = -0.2
+color = Color(0, 1, 5, 1)
+hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 
 [sub_resource type="SphereMesh" id="SphereMesh_2psmq"]
