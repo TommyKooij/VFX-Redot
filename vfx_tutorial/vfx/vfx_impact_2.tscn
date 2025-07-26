@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ci884ne855jkm"]
+[gd_scene load_steps=19 format=3 uid="uid://ci884ne855jkm"]
 
 [ext_resource type="Shader" uid="uid://dsn2pddu3hskd" path="res://shaders/vfx_hit2.tres" id="1_uvtev"]
 [ext_resource type="Texture2D" uid="uid://duln7s6okhdys" path="res://textures/star.png" id="2_qswhu"]
+[ext_resource type="Shader" uid="uid://batrswykaciah" path="res://shaders/vfx_sparks.tres" id="3_yhjl0"]
+[ext_resource type="Texture2D" uid="uid://dncf8f0odkvg3" path="res://textures/spark.png" id="4_4d4av"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qswhu"]
 render_priority = 0
@@ -41,6 +43,33 @@ alpha_curve = SubResource("CurveTexture_yhjl0")
 
 [sub_resource type="QuadMesh" id="QuadMesh_yhjl0"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rlisv"]
+render_priority = 0
+shader = ExtResource("3_yhjl0")
+shader_parameter/hit_texture = ExtResource("4_4d4av")
+
+[sub_resource type="Curve" id="Curve_um2yi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8jatr"]
+curve = SubResource("Curve_um2yi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vtucm"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 8.0
+initial_velocity_max = 12.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.5
+color = Color(2.49804, 0.494118, 0.498039, 1)
+alpha_curve = SubResource("CurveTexture_8jatr")
+
+[sub_resource type="QuadMesh" id="QuadMesh_pjo0v"]
+size = Vector2(0.05, 0.25)
+
 [node name="vfx_impact2" type="Node3D"]
 
 [node name="hit" type="GPUParticles3D" parent="."]
@@ -52,3 +81,8 @@ process_material = SubResource("ParticleProcessMaterial_7ifl0")
 draw_pass_1 = SubResource("QuadMesh_yhjl0")
 
 [node name="sparks" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_rlisv")
+lifetime = 0.25
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_vtucm")
+draw_pass_1 = SubResource("QuadMesh_pjo0v")
