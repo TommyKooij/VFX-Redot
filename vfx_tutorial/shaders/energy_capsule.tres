@@ -146,7 +146,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-226.797, -136.627)
 modes/blend = 1
 nodes/fragment/0/position = Vector2(1520, 160)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_wpbdr")
