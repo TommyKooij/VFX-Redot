@@ -1,14 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://badfkbueshcap"]
+[gd_scene load_steps=32 format=3 uid="uid://badfkbueshcap"]
 
 [ext_resource type="Shader" uid="uid://tdxltc0w8015" path="res://shaders/energy_capsule.tres" id="1_f2h4h"]
 [ext_resource type="Texture2D" uid="uid://dfhmidiacqypt" path="res://textures/wavelet.png" id="2_2tx24"]
 [ext_resource type="Texture2D" uid="uid://b8if4v27mtryq" path="res://textures/ring.png" id="2_kq18y"]
 [ext_resource type="Texture2D" uid="uid://dmo2bjpmduf3f" path="res://textures/wavelet-occ.png" id="3_2eme3"]
 [ext_resource type="Texture2D" uid="uid://cuc2dvxehvurg" path="res://textures/sparkle.png" id="4_2eme3"]
-
-[sub_resource type="Environment" id="Environment_2tx24"]
-glow_enabled = true
-glow_normalized = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2eme3"]
 transparency = 1
@@ -151,11 +147,6 @@ radius = 0.2
 height = 0.4
 
 [node name="energy_capsule" type="Node3D"]
-
-[node name="scene" type="Node" parent="."]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="scene"]
-environment = SubResource("Environment_2tx24")
 
 [node name="sparkles" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_2eme3")
